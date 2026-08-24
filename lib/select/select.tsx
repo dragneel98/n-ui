@@ -34,19 +34,20 @@ export const Select: React.FC<SelectProps> = ({ options, onSelect, title, childr
                     <IoIosArrowDown />
                 </div>
             </div>
-            {isOpen && (
-                <ul className={styles.optionsList}>
-                    {options.map((option, index) => (
-                        <li
-                            key={index}
-                            className={styles.option}
-                            onClick={() => handleOptionClick(option)}
-                        >
-                            {option}
-                        </li>
-                    ))}
-                </ul>
-            )}
+            <ul
+                className={`${styles.optionsList} ${isOpen ? styles.open : styles.closed}`}
+                aria-hidden={!isOpen}
+            >
+                {options.map((option, index) => (
+                    <li
+                        key={index}
+                        className={styles.option}
+                        onClick={() => handleOptionClick(option)}
+                    >
+                        {option}
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };

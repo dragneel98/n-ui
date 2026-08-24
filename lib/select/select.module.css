@@ -40,6 +40,28 @@
     margin: 0;
     border-radius: 0 0 1.5em 1.5em;
     box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(-8px) scaleY(0.96);
+    transform-origin: top;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0s linear 0.25s;
+    z-index: 1;
+  }
+
+  .optionsList.open {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+
+  .optionsList.closed {
+    transition-delay: 0s, 0s, 0.25s;
   }
   
   .option {
@@ -54,19 +76,10 @@
   }
 
   .arrowIcon {
-    transition: transform 0.3s ease; 
+    transition: transform 0.25s ease;
     margin: 0 auto;
   }
 
   .arrowIcon.rotate {
-    animation: rotateArrow 0.3s ease forwards; /* Aplica la animación de rotación */
+    transform: rotate(180deg);
   }
-
-  @keyframes rotateArrow {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(180deg);
-    }
-}

@@ -62,5 +62,6 @@
     line-height: 30px;
     transform: translate(-15px, -16px) scale(0.7);
     z-index: 111;
-    /* background-color: white; */
+    /* Keep the label readable when the input has text but is not focused. */
+    background-color: var(--secondary-color);
 }
